@@ -3,11 +3,11 @@ package com.example.luy.maninvan;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class UserActivity extends AppCompatActivity {
+public class JobActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user);
+        setContentView(R.layout.activity_job);
     }
 }

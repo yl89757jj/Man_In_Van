@@ -15,4 +15,5 @@
         completions."
     </string>
     <string name="title_activity_code_verify">Code_verify</string>
+    <string name="title_activity_maps">Map</string>
 </resources>
