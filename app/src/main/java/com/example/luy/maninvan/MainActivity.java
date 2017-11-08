@@ -18,8 +18,8 @@ public class MainActivity extends AppCompatActivity {
     public void sendCode(View view){
         EditText editText = (EditText) findViewById(R.id.text_input_phone);
         String message = editText.getText().toString();
-            Intent intent = new Intent(this, Code_verify.class);
-            intent.putExtra(EXTRA_MESSAGE, message);
-            startActivity(intent);
+        Intent intent = new Intent(this, Code_verify.class);
+        intent.putExtra(EXTRA_MESSAGE, message);
+        startActivity(intent);
     }
 }

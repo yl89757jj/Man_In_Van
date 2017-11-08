@@ -12,7 +12,6 @@ import android.widget.EditText;
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class Code_verify extends AppCompatActivity {
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +19,7 @@ public class Code_verify extends AppCompatActivity {
     }
 
     public void verifyCode(View view){
-        Intent intent = new Intent(this, Code_verify.class);
+        Intent intent = new Intent(this, UserActivity.class);
         EditText editText = (EditText) findViewById(R.id.text_input_code);
         String message = editText.getText().toString();
         intent.putExtra(EXTRA_MESSAGE, message);
