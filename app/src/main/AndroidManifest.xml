@@ -35,7 +35,7 @@
             android:name=".Code_verify"
             android:label="@string/title_activity_code_verify"
             android:theme="@style/AppTheme.NoActionBar" />
-<<<<<<< HEAD
+
         <activity
             android:name=".JobActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -56,10 +56,9 @@
 
         <activity
             android:name=".MapsActivity"
-
             android:label="@string/title_activity_maps" />
 
-        <activity android:name=".JobActivity"></activity>
+
         <activity
             android:name=".HaulingActivity"
             android:theme="@style/AppTheme.NoActionBar" ></activity>
