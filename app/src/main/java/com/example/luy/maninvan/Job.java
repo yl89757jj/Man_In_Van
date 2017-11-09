@@ -1,12 +1,13 @@
 package com.example.luy.maninvan;
 
+import java.io.Serializable;
 import java.sql.Time;
 
 /**
  * Created by Lulalulali on 11/8/17.
  */
 
-public class Job {
+public class Job implements Serializable {
     private User user;
     private boolean isRequest;
     private int movingRoom = 0;
@@ -24,6 +25,20 @@ public class Job {
         this.endTime = endTime;
         this.price = price;
         this.description = description;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Job{" +
+                "user=" + user +
+                ", isRequest=" + isRequest +
+                ", movingRoom=" + movingRoom +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
+                ", price=" + price +
+                ", description='" + description + '\'' +
+                '}';
     }
 
 }

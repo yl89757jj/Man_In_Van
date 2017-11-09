@@ -13,13 +13,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="0dp"
+        android:layout_weight="3"
         android:orientation="vertical">
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:src="@drawable/map"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:cropToPadding="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
     </LinearLayout>
 
     <LinearLayout
@@ -42,8 +51,10 @@
                 android:layout_weight="3"
                 android:layout_height="match_parent"
                 android:text="Number of Rooms to Move"
-                android:layout_gravity="center_vertical" />
+                android:layout_gravity="center_vertical"
+                android:padding="8dp" />
             <EditText
+                android:id="@+id/input_rooms"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="match_parent"
@@ -65,8 +76,9 @@
                 android:layout_weight="3"
                 android:layout_height="match_parent"
                 android:text="Job Start Time"
-                />
+                android:padding="8dp" />
             <EditText
+                android:id="@+id/input_startTime"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="match_parent"
@@ -86,27 +98,46 @@
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="match_parent"
-                android:text="Finish By"/>
+                android:text="Finish By"
+                android:padding="8dp" />
             <EditText
+                android:id="@+id/input_endTime"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="match_parent"
                 android:hint="08:00pm"
                 style="@style/EditTextCustomHolo"/>
-
         </LinearLayout>
-
 
 
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/request_price"
-        android:orientation="vertical"
+        android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="2"
         >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="match_parent"
+            android:text="Max Price"
+            android:textSize="24sp"
+            android:paddingTop="20dp"
+            android:paddingLeft="8dp" />
+
+        <EditText
+            android:id="@+id/input_price"
+            android:layout_width="0dp"
+            android:layout_weight="2"
+            android:layout_height="match_parent"
+            android:hint="400$"
+            style="@style/EditTextCustomHolo"
+            android:textSize="30sp" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -116,6 +147,22 @@
         android:layout_height="0dp"
         android:layout_weight="3"
         >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:text="Description"
+            android:paddingLeft="8dp" />
+        <EditText
+            android:id="@+id/input_description"
+            android:layout_width="match_parent"
+            android:layout_weight="4"
+            android:layout_height="0dp"
+            android:hint="No elevator."
+            style="@style/EditTextCustomHolo"
+            android:textAlignment="textEnd" />
+
     </LinearLayout>
 
     <LinearLayout
@@ -131,8 +178,8 @@
             android:layout_height="wrap_content"
             android:text="Send"
             android:layout_gravity="center"
+            android:onClick="submitJobRequest"
             />
-
     </LinearLayout>
 
 </LinearLayout>
