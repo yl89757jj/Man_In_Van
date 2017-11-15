@@ -8,16 +8,16 @@ import java.sql.Time;
  */
 
 public class Job implements Serializable {
-    private User user;
-    private boolean isRequest;
-    private int movingRoom = 0;
-    private Time startTime;
-    private Time endTime;
-    private double price = 0;
-    private String description  ="";
+    public User user;
+    public boolean isRequest;
+    public int movingRoom = 0;
+    public Time startTime;
+    public Time endTime;
+    public String price;
+    public String description  ="";
 
 
-    public Job(User user, int movingRoom, Time startTime, Time endTime, double price, String description) {
+    public Job(User user, int movingRoom, Time startTime, Time endTime, String price, String description) {
         this.user = user;
         this.isRequest = this.user.isRequester;
         this.movingRoom = movingRoom;
