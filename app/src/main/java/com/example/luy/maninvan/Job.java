@@ -13,11 +13,11 @@ public class Job implements Serializable {
     public int movingRoom = 0;
     public Time startTime;
     public Time endTime;
-    public String price;
+    public int price;
     public String description  ="";
 
 
-    public Job(User user, int movingRoom, Time startTime, Time endTime, String price, String description) {
+    public Job(User user, int movingRoom, Time startTime, Time endTime, int price, String description) {
         this.user = user;
         this.isRequest = this.user.isRequester;
         this.movingRoom = movingRoom;

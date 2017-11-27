@@ -19,7 +19,7 @@ public class Code_verify extends AppCompatActivity {
     }
 
     public void verifyCode(View view){
-        Intent intent = new Intent(this,JobActivity.class);
+        Intent intent = new Intent(this, UserProfile.class);
 
         EditText editText = (EditText) findViewById(R.id.text_input_code);
         String message = editText.getText().toString();
