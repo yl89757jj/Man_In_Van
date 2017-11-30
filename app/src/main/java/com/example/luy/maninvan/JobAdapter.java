@@ -18,6 +18,10 @@ import java.util.List;
  */
 
 public class JobAdapter extends RecyclerView.Adapter<JobViewHolder> {
+    public JobAdapter() {
+
+    }
+
     private List<Job> jobs;
     private Context context;
     public static String departureArea = "";

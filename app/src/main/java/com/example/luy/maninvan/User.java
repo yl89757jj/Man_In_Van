@@ -1,5 +1,8 @@
 package com.example.luy.maninvan;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+
 import java.io.Serializable;
 
 /**
@@ -10,9 +13,5 @@ public class User implements Serializable {
     Job[] postedJobs = {};
     String name;
     String phone;//identify user
-    String type;
-    boolean isRequester;
-    int price = 0;
-    String description;
-    int Pic;
+    Bitmap Pic;
 }

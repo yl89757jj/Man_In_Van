@@ -9,17 +9,16 @@ import java.sql.Time;
 
 public class Job implements Serializable {
     public User user;
-    public boolean isRequest;
+    public boolean taken = false;
     public int movingRoom = 0;
-    public Time startTime;
-    public Time endTime;
+    public String startTime;
+    public String endTime;
     public int price;
     public String description  ="";
 
 
-    public Job(User user, int movingRoom, Time startTime, Time endTime, int price, String description) {
+    public Job(User user, int movingRoom, String startTime, String endTime, int price, String description) {
         this.user = user;
-        this.isRequest = this.user.isRequester;
         this.movingRoom = movingRoom;
         this.startTime = startTime;
         this.endTime = endTime;
@@ -27,12 +26,15 @@ public class Job implements Serializable {
         this.description = description;
     }
 
+    public void beTook(){
+        this.taken = true;
+    }
+
 
     @Override
     public String toString() {
         return "Job{" +
                 "user=" + user +
-                ", isRequest=" + isRequest +
                 ", movingRoom=" + movingRoom +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +

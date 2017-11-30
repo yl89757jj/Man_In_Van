@@ -11,7 +11,7 @@
     tools:context="com.example.luy.maninvan.Code_verify">
 
     <Button
-        android:text="Verify Code"
+        android:text="Login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

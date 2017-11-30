@@ -28,7 +28,7 @@
                 style="@style/headLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:text="start time" />
 
             <TextView
                 android:id="@+id/arrow"
@@ -42,7 +42,7 @@
                 style="@style/headLine"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="" />
+                android:text="end time" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,6 +78,26 @@
 
             <TextView
                 android:id="@+id/job_price"
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+
+                style="@style/normalText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Driver: " />
+
+            <TextView
+                android:id="@+id/job_driver"
                 style="@style/normalText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

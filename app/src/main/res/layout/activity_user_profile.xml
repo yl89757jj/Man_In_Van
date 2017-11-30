@@ -38,29 +38,140 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Take Photo"
+                    android:layout_margin="8dp"
+                    android:textSize="8dp"
+                    android:text="Take Pho"
                     android:onClick="takeImage"/>
 
                 <Button
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:text="Pick Photo"
-                    android:onClick="addImage"
-                    android:textSize="14sp" />
+                    android:text="Pick Pho"
+                    android:layout_margin="8dp"
+                    android:textSize="8dp"
+                    android:onClick="addImage" />
             </LinearLayout>
 
-            </LinearLayout>
+        </LinearLayout>
 
-        <TextView
+        <LinearLayout
             android:layout_width="0dp"
             android:layout_weight="3"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/user"
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:textAlignment="textEnd"
+                    />
+                <TextView
+                    android:id="@+id/user_name"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:hint="Vincent"
+                    style="@style/EditTextCustomHolo"
+                                                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/phone"
+                    android:padding="8dp"
+                    android:scaleType="centerInside"
+                    android:textAlignment="textEnd"
+                    />
+                <TextView
+                    android:id="@+id/user_phone"
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="match_parent"
+                    android:hint="123-456-7890"
+                    style="@style/EditTextCustomHolo"
+                                                         />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2">
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:textSize="8dp"
+                    android:text="Modify"
+                    android:onClick="modifyUser"/>
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_margin="8dp"
+                    android:textSize="8dp"
+                    android:text="Save"
+                    android:onClick="saveUser"
+ />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
 
 
     </LinearLayout>
 
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:text="Previous Jobs"
+        android:layout_gravity="center_horizontal"
+        android:textSize="18sp"
+        android:textAlignment="center"
+        android:layout_marginTop="10dp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/resultRecycler_view"
@@ -78,10 +189,10 @@
 
         <android.support.design.widget.FloatingActionButton
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:clickable="true"
             android:onClick="addJob"
-            app:fabSize="mini"
+            app:fabSize="normal"
             app:srcCompat="@android:drawable/ic_input_add"
             android:id="@+id/floatingActionButton"
             android:layout_gravity="right"/>

@@ -15,6 +15,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
@@ -37,6 +38,8 @@ public class UserProfile extends AppCompatActivity {
     private static final int REQUEST_TAKE_PHOTO = 1;
     private static final int REQUEST_PICK_PHOTO = 2;
     private ImageView PhotoImageView;
+    private RecyclerView RecyclerView;
+    private JobAdapter jobAdapter;
     private File photoFile;
     User user;
 
@@ -48,6 +51,9 @@ public class UserProfile extends AppCompatActivity {
             askPermissions();
         }
         PhotoImageView = (ImageView) findViewById(R.id.user_selfie);
+        RecyclerView = (RecyclerView) findViewById(R.id.resultRecycler_view);
+        jobAdapter = new JobAdapter();//TODO: Request DATA from database and create list of user's jobs; Input parameter should be a list of JOB
+        RecyclerView.setAdapter(jobAdapter);
     }
     public void addJob(View view){
         Intent intent = new Intent(this,JobActivity.class);
