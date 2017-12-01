@@ -2,6 +2,7 @@ package com.example.luy.maninvan;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -18,12 +19,18 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.ViewSwitcher;
+
+import com.google.android.gms.identity.intents.model.UserAddress;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -50,17 +57,21 @@ public class UserProfile extends AppCompatActivity {
         if (shouldAskPermissions()) {
             askPermissions();
         }
+
         PhotoImageView = (ImageView) findViewById(R.id.user_selfie);
         RecyclerView = (RecyclerView) findViewById(R.id.resultRecycler_view);
         jobAdapter = new JobAdapter();//TODO: Request DATA from database and create list of user's jobs; Input parameter should be a list of JOB
         RecyclerView.setAdapter(jobAdapter);
     }
+
+
+
+
     public void addJob(View view){
         Intent intent = new Intent(this,JobActivity.class);
         intent.putExtra(EXTRA_MESSAGE,  user);
         startActivity(intent);
     }
-
 
     public void takeImage(View view) {
         Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
@@ -98,6 +109,7 @@ public class UserProfile extends AppCompatActivity {
         bmpOptions.inSampleSize = scaleFactor;
         Bitmap image = BitmapFactory.decodeFile(photoFile.getAbsolutePath(), bmpOptions);
         PhotoImageView.setImageBitmap(image);
+        user.Pic=image;
     }
 
     private void decodeUri(Uri uri) throws FileNotFoundException {
@@ -124,6 +136,12 @@ public class UserProfile extends AppCompatActivity {
         byte[] byteArray = byteStream.toByteArray();
         return Base64.encodeToString(byteArray, Base64.DEFAULT);
     }
+
+    private Bitmap byteStringToBitmap(String byteString) {
+        byte[] imageAsByte = Base64.decode(byteString.getBytes(), Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(imageAsByte, 0, imageAsByte.length);
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -153,6 +171,32 @@ public class UserProfile extends AppCompatActivity {
         int requestCode = 200;
         requestPermissions(permissions, requestCode);
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.log_out:
+                //Log Out from App
+                Intent intent1 = new Intent(UserProfile.this, MainActivity.class);
+                return true;
+            case R.id.user:
+                Intent intent = new Intent(UserProfile.this, UserProfile.class);
+                startActivity(intent);
+            case R.id.receive:
+                Intent intent2 = new Intent(UserProfile.this, HaulingActivity.class);
+                startActivity(intent2);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+
 
 
 }

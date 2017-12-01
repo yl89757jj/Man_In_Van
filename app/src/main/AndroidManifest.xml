@@ -37,7 +37,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".JobActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+ />
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -61,7 +61,6 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".UserProfile"
-            android:theme="@style/AppTheme.NoActionBar"
             />
 
 

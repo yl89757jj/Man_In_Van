@@ -3,6 +3,8 @@ package com.example.luy.maninvan;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -56,5 +58,28 @@ public class JobActivity extends AppCompatActivity {
             startActivity(intent);
         }
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.log_out:
+                //Log Out from App
+                Intent intent1 = new Intent(JobActivity.this, MainActivity.class);
+                return true;
+            case R.id.user:
+                Intent intent = new Intent(JobActivity.this, UserProfile.class);
+                startActivity(intent);
+            case R.id.receive:
+                Intent intent2 = new Intent(JobActivity.this, HaulingActivity.class);
+                startActivity(intent2);
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

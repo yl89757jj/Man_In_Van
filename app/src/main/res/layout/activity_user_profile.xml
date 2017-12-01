@@ -14,9 +14,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
         android:orientation="horizontal"
-        >
+        android:layout_height="180dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -32,7 +31,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2">
+                android:layout_weight="2"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp">
 
                 <Button
                     android:layout_width="0dp"
@@ -41,7 +42,8 @@
                     android:layout_margin="8dp"
                     android:textSize="8dp"
                     android:text="Take Pho"
-                    android:onClick="takeImage"/>
+                    android:onClick="takeImage"
+                    />
 
                 <Button
                     android:layout_width="0dp"
@@ -50,7 +52,8 @@
                     android:text="Pick Pho"
                     android:layout_margin="8dp"
                     android:textSize="8dp"
-                    android:onClick="addImage" />
+                    android:onClick="addImage"
+                    />
             </LinearLayout>
 
         </LinearLayout>
@@ -116,7 +119,7 @@
                     android:layout_height="match_parent"
                     android:hint="123-456-7890"
                     style="@style/EditTextCustomHolo"
-                                                         />
+                     />
 
             </LinearLayout>
 
@@ -125,14 +128,15 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:orientation="horizontal">
-
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2">
+                android:layout_weight="2"
+                android:layout_marginRight="50dp"
+                android:layout_marginLeft="50dp">
 
                 <Button
                     android:layout_width="0dp"
@@ -141,24 +145,11 @@
                     android:layout_margin="8dp"
                     android:textSize="8dp"
                     android:text="Modify"
-                    android:onClick="modifyUser"/>
+                    android:onClick="modifyUser" />
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_margin="8dp"
-                    android:textSize="8dp"
-                    android:text="Save"
-                    android:onClick="saveUser"
- />
             </LinearLayout>
 
-
         </LinearLayout>
-
-
-
 
     </LinearLayout>
 
@@ -183,21 +174,22 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_height="0dp"
-        android:layout_weight="2"
-        android:layout_width="match_parent">
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:clickable="true"
+        android:layout_gravity="center_horizontal|center">
 
 
-        <android.support.design.widget.FloatingActionButton
+        <Button
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:clickable="true"
             android:onClick="addJob"
-            app:fabSize="normal"
-            app:srcCompat="@android:drawable/ic_input_add"
+            android:text="Add Job"
+            android:textSize="8dp"
             android:id="@+id/floatingActionButton"
-            android:layout_gravity="right"/>
+            android:layout_gravity="center_horizontal"/>
 
     </LinearLayout>
-
 
 </LinearLayout>

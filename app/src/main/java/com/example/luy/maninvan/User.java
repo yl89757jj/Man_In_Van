@@ -14,4 +14,5 @@ public class User implements Serializable {
     String name;
     String phone;//identify user
     Bitmap Pic;
+    int id;
 }
