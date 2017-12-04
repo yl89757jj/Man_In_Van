@@ -109,7 +109,7 @@ public class UserProfile extends AppCompatActivity {
         bmpOptions.inSampleSize = scaleFactor;
         Bitmap image = BitmapFactory.decodeFile(photoFile.getAbsolutePath(), bmpOptions);
         PhotoImageView.setImageBitmap(image);
-        user.Pic=image;
+//        user.Pic=image;
     }
 
     private void decodeUri(Uri uri) throws FileNotFoundException {
