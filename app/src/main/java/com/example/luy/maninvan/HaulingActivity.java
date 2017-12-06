@@ -14,15 +14,21 @@ import android.widget.Toast;
 public class HaulingActivity extends AppCompatActivity {
     String phoneNumber = "9177567156";
     String message = "Hi Luna, thanks for accepting my request...";
-    Job job;
+    String name = "User";
+    Job job;//matched job
+    User driver;//matched driver
     boolean taken;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hauling);
+//        TODO: Update data
+//        phoneNumber = driver.phone;
+//        message = "Hi" + driver.name+", thanks for accepting my request...";
+//        name = driver.name;
 
-        String name = "User";
         TextView mock = (TextView) findViewById(R.id.van_note);
         mock.setText(name + " has accept your job. Make sure to contact Luna to confirm pick up time and any details! Don't forget you need to pay in chash as soon as the job done.");
     }
@@ -30,7 +36,6 @@ public class HaulingActivity extends AppCompatActivity {
     public void sendMessage(View view){
         //SMS APP will handle
         if(!taken){
-//            job.beTook();
             taken=true;
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("sms:" + phoneNumber));
             intent.putExtra("sms_body", message);
@@ -41,8 +46,6 @@ public class HaulingActivity extends AppCompatActivity {
             Intent back = new Intent(this, UserProfile.class);
             startActivity(back);
         }
-
-
     }
 
     @Override

@@ -29,6 +29,11 @@ public class JobAdapter extends RecyclerView.Adapter<JobViewHolder> {
     public static String datePreferred = "";
 
 
+    public JobAdapter(ArrayList<Job>jobs,final Context context) {
+        this.jobs = jobs;
+        this.context = context;
+    }
+
     @Override
     public JobViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_job, parent, false);

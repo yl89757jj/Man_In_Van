@@ -16,6 +16,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
 import android.util.Log;
@@ -37,7 +38,9 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
@@ -50,26 +53,38 @@ public class UserProfile extends AppCompatActivity {
     private RecyclerView RecyclerView;
     private JobAdapter jobAdapter;
     private File photoFile;
-    User user;
+    ArrayList<Job> jobs;
+    User user = new User("Tester","123-456-7890",false);
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        Job job1 = new Job(user,2,"12:00","3:00",200);
+        Job job2 = new Job(user,1,"12:00","3:00",100);
+        Job job3 = new Job(user,3,"12:00","3:00",250);
+        jobs.add(job1);
+        jobs.add(job2);
+        jobs.add(job3);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         if (shouldAskPermissions()) {
             askPermissions();
         }
 
-        PhotoImageView = (ImageView) findViewById(R.id.user_selfie);
-        RecyclerView = (RecyclerView) findViewById(R.id.resultRecycler_view);
-        nameView = (TextView) findViewById(R.id.user_name);
-        numberView = (TextView) findViewById(R.id.user_phone);
-        jobAdapter = new JobAdapter();//TODO: Request DATA from database and create list of user's jobs; Input parameter should be a list of JOB
+        PhotoImageView = findViewById(R.id.user_selfie);
+        RecyclerView = findViewById(R.id.resultRecycler_view);
+        nameView = findViewById(R.id.user_name);
+        numberView = findViewById(R.id.user_phone);
+        jobAdapter = new JobAdapter(jobs,UserProfile.this);//TODO: Request DATA from database and create list of user's jobs; Input parameter should be a list of JOB
         RecyclerView.setAdapter(jobAdapter);
+        RecyclerView.setHasFixedSize(true);
+        RecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 //        TODO: showing user info
-//        nameView.setText();
-//        numberView.setText();
+        nameView.setText(user.name);
+        numberView.setText(user.phone);
     }
 
 
@@ -117,7 +132,7 @@ public class UserProfile extends AppCompatActivity {
         bmpOptions.inSampleSize = scaleFactor;
         Bitmap image = BitmapFactory.decodeFile(photoFile.getAbsolutePath(), bmpOptions);
         PhotoImageView.setImageBitmap(image);
-//        user.Pic=image;
+//TODO: Update User's Selfie
     }
 
     private void decodeUri(Uri uri) throws FileNotFoundException {
@@ -167,7 +182,8 @@ public class UserProfile extends AppCompatActivity {
     }
 
     protected boolean shouldAskPermissions() {
-        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);
+        return false;
+//        return (Build.VERSION.SDK_INT > Build.VERSION_CODES.LOLLIPOP_MR1);
     }
 
     @TargetApi(23)

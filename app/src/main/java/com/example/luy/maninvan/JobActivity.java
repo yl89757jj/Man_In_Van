@@ -50,8 +50,9 @@ public class JobActivity extends AppCompatActivity {
         if(rooms.equals("")||startTime.equals("")||endTime.equals("")||price.equals("")){
             Toast.makeText(JobActivity.this, "Please Enter Job Information.", Toast.LENGTH_LONG).show();
         }else{
-            //TODO:Push job to database
-//        Job newJob = new Job(user,parseInt(rooms),startTime,endTime,parseInt(price),description);
+            //TODO:Accordingly Create Job and Push job to database
+        Job newJob = new Job(user,parseInt(rooms),startTime,endTime,parseInt(price));
+        newJob.description=description;
 //        String message = "Information or Object that should be sent to next activity";
 //        intent.putExtra(EXTRA_MESSAGE, message);
             Intent intent = new Intent(this,HaulingActivity.class);

@@ -17,13 +17,13 @@ public class Job implements Serializable {
     public String description  ="";
 
 
-    public Job(User user, int movingRoom, String startTime, String endTime, int price, String description) {
+    public Job(User user, int movingRoom, String startTime, String endTime, int price) {
         this.user = user;
         this.movingRoom = movingRoom;
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
-        this.description = description;
+
     }
 
     public void beTook(){
