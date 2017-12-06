@@ -45,6 +45,8 @@ public class UserProfile extends AppCompatActivity {
     private static final int REQUEST_TAKE_PHOTO = 1;
     private static final int REQUEST_PICK_PHOTO = 2;
     private ImageView PhotoImageView;
+    private TextView nameView;
+    private TextView numberView;
     private RecyclerView RecyclerView;
     private JobAdapter jobAdapter;
     private File photoFile;
@@ -60,8 +62,14 @@ public class UserProfile extends AppCompatActivity {
 
         PhotoImageView = (ImageView) findViewById(R.id.user_selfie);
         RecyclerView = (RecyclerView) findViewById(R.id.resultRecycler_view);
+        nameView = (TextView) findViewById(R.id.user_name);
+        numberView = (TextView) findViewById(R.id.user_phone);
         jobAdapter = new JobAdapter();//TODO: Request DATA from database and create list of user's jobs; Input parameter should be a list of JOB
         RecyclerView.setAdapter(jobAdapter);
+
+//        TODO: showing user info
+//        nameView.setText();
+//        numberView.setText();
     }
 
 

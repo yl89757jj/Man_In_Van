@@ -18,6 +18,13 @@ android {
         }
     }
     buildToolsVersion '26.0.2'
+
+    dexOptions {
+
+        jumboMode true
+        javaMaxHeapSize "4g"
+
+    }
 }
 
 dependencies {

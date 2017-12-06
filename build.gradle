@@ -27,3 +27,4 @@ allprojects {
 clean {
     delete rootProject.buildDir
 }
+
