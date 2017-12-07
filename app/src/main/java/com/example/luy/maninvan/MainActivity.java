@@ -20,16 +20,21 @@ public class MainActivity extends AppCompatActivity {
         EditText editText = (EditText) findViewById(R.id.text_input_phone);
         String phone = editText.getText().toString();
         //TODO: Check the existance of phone number in database
-        if(exist){//jump to password verify
-            Intent intent = new Intent(this, Code_verify.class);
-            intent.putExtra("EXTRA_PHONE", phone);
-            intent.putExtra("EXTRA_EXIST", exist);
-            startActivity(intent);
-        }else {//Jump to name input and create new account
-            Intent intent = new Intent(this, InfoActivity.class);
-            intent.putExtra("EXTRA_PHONE", phone);
-            startActivity(intent);
-        }
+        
+//        if(exist){//jump to password verify
+//            Intent intent = new Intent(this, Code_verify.class);
+//            intent.putExtra("EXTRA_PHONE", phone);
+//            intent.putExtra("EXTRA_EXIST", exist);
+//            startActivity(intent);
+//        }else {//Jump to name input and create new account
+//            Intent intent = new Intent(this, InfoActivity.class);
+//            intent.putExtra("EXTRA_PHONE", phone);
+//            startActivity(intent);
+//        }
+
+        Intent intent = new Intent(this, InfoActivity.class);
+        intent.putExtra("EXTRA_PHONE", phone);
+        startActivity(intent);
 
     }
 }

@@ -32,11 +32,11 @@ public class Code_verify extends AppCompatActivity {
     public void verifyCode(View view){
         EditText editText = (EditText) findViewById(R.id.text_input_code);
         String password = editText.getText().toString();
-        if(exist){
-            user = new User(name,phone,false);//create new user
-        }else{
-//      TODO: set verified user
-        }
+//        if(exist){
+//            user = new User(name,phone,false);//create new user
+//        }else{
+////      TODO: set verified user
+//        }
 
         //TODO: REQUEST VERIFIED USER FROM DATABASE
         Intent intent = new Intent(this, UserProfile.class);

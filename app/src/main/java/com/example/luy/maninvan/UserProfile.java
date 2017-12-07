@@ -61,15 +61,17 @@ public class UserProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+//        intent = getIntent();
+//        Bundle extras = intent.getExtras();
+//        user = (User)extras.get("EXTRA_USER");
         Job job1 = new Job(user,2,"12:00","3:00",5,200);
         Job job2 = new Job(user,1,"12:00","3:00",10,100);
         Job job3 = new Job(user,3,"12:00","3:00",12,250);
         jobs.add(job1);
         jobs.add(job2);
         jobs.add(job3);
-        intent = getIntent();
-        Bundle extras = intent.getExtras();
-        user = (User)extras.get("EXTRA_USER");
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         if (shouldAskPermissions()) {

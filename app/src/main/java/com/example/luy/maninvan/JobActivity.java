@@ -20,11 +20,13 @@ public class JobActivity extends AppCompatActivity {
     private String startTime;
     private String endTime;
     private String description;
+    private String distance;
     EditText editText ;
     EditText editText2 ;
     EditText editText3 ;
     EditText editText4 ;
     EditText editText5 ;
+    EditText editText6 ;
     private String price;
     private User user;
     @Override
@@ -41,17 +43,21 @@ public class JobActivity extends AppCompatActivity {
         editText3 = (EditText) findViewById(R.id.input_endTime);
         editText4 = (EditText) findViewById(R.id.input_price);
         editText5 = (EditText) findViewById(R.id.input_description);
+        editText6 = (EditText) findViewById(R.id.input_distance);
+
         rooms = editText.getText().toString();
         startTime = editText2.getText().toString();
         endTime = editText3.getText().toString();
         price = editText4.getText().toString();
         description = editText5.getText().toString();
+        distance=editText6.getText().toString();
 
-        if(rooms.equals("")||startTime.equals("")||endTime.equals("")||price.equals("")){
+
+        if(rooms.equals("")||startTime.equals("")||endTime.equals("")||price.equals("")||distance.equals("")){
             Toast.makeText(JobActivity.this, "Please Enter Job Information.", Toast.LENGTH_LONG).show();
         }else{
             //TODO:Accordingly Create Job and Push job to database
-        Job newJob = new Job(user,parseInt(rooms),startTime,endTime,parseInt(price));
+        Job newJob = new Job(user,parseInt(rooms),startTime,endTime,parseInt(distance),parseInt(price));
         newJob.description=description;
 //        String message = "Information or Object that should be sent to next activity";
 //        intent.putExtra(EXTRA_MESSAGE, message);
