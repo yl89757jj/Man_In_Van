@@ -9,6 +9,7 @@ import android.widget.EditText;
 import static android.provider.AlarmClock.EXTRA_MESSAGE;
 
 public class MainActivity extends AppCompatActivity {
+    boolean exist = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -17,9 +18,18 @@ public class MainActivity extends AppCompatActivity {
 
     public void sendCode(View view){
         EditText editText = (EditText) findViewById(R.id.text_input_phone);
-        String message = editText.getText().toString();
-        Intent intent = new Intent(this, Code_verify.class);
-        intent.putExtra(EXTRA_MESSAGE, message);
-        startActivity(intent);
+        String phone = editText.getText().toString();
+        //TODO: Check the existance of phone number in database
+        if(exist){//jump to password verify
+            Intent intent = new Intent(this, Code_verify.class);
+            intent.putExtra("EXTRA_PHONE", phone);
+            intent.putExtra("EXTRA_EXIST", exist);
+            startActivity(intent);
+        }else {//Jump to name input and create new account
+            Intent intent = new Intent(this, InfoActivity.class);
+            intent.putExtra("EXTRA_PHONE", phone);
+            startActivity(intent);
+        }
+
     }
 }

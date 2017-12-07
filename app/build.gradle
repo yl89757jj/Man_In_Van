@@ -19,9 +19,9 @@ android {
     }
     buildToolsVersion '26.0.2'
 
-        defaultConfig {
-            multiDexEnabled true
-        }
+    defaultConfig {
+        multiDexEnabled true
+    }
 
     dexOptions {
 
@@ -32,6 +32,7 @@ android {
 }
 
 dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'

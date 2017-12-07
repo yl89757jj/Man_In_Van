@@ -50,23 +50,26 @@ public class UserProfile extends AppCompatActivity {
     private ImageView PhotoImageView;
     private TextView nameView;
     private TextView numberView;
-    private RecyclerView RecyclerView;
+    private RecyclerView recyclerView;
     private JobAdapter jobAdapter;
     private File photoFile;
-    ArrayList<Job> jobs;
-    User user = new User("Tester","123-456-7890",false);
+    private Intent intent;
+    ArrayList<Job> jobs = new ArrayList<Job>();
+    private User user = new User("Tester","123-456-7890",false);
 
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         Job job1 = new Job(user,2,"12:00","3:00",200);
         Job job2 = new Job(user,1,"12:00","3:00",100);
         Job job3 = new Job(user,3,"12:00","3:00",250);
         jobs.add(job1);
         jobs.add(job2);
         jobs.add(job3);
+        intent = getIntent();
+        Bundle extras = intent.getExtras();
+        user = (User)extras.get("EXTRA_USER");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
         if (shouldAskPermissions()) {
@@ -74,13 +77,15 @@ public class UserProfile extends AppCompatActivity {
         }
 
         PhotoImageView = findViewById(R.id.user_selfie);
-        RecyclerView = findViewById(R.id.resultRecycler_view);
+        recyclerView = findViewById(R.id.resultRecycler_view);
         nameView = findViewById(R.id.user_name);
         numberView = findViewById(R.id.user_phone);
-        jobAdapter = new JobAdapter(jobs,UserProfile.this);//TODO: Request DATA from database and create list of user's jobs; Input parameter should be a list of JOB
-        RecyclerView.setAdapter(jobAdapter);
-        RecyclerView.setHasFixedSize(true);
-        RecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        jobAdapter = new JobAdapter(jobs,UserProfile.this);
+        //TODO: Request DATA from database and create list of user's jobs; Input parameter should be a list of JOB
+//        jobAdapter = new JobAdapter(this);
+        recyclerView.setAdapter(jobAdapter);
+        recyclerView.setHasFixedSize(true);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 //        TODO: showing user info
         nameView.setText(user.name);

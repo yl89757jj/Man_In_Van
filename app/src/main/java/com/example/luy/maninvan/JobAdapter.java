@@ -18,18 +18,23 @@ import java.util.List;
  */
 
 public class JobAdapter extends RecyclerView.Adapter<JobViewHolder> {
-    public JobAdapter() {
 
+    User user = new User("Tester","123-456-7890",false);
+    private Job testJob = new Job(user,2,"12:30","123",3);
+    public List<Job> jobs = new ArrayList<Job>();
+    private Context context;
+
+    public JobAdapter(final Context context) {
+        this.context=context;
+        Job job1 = new Job(user,2,"12:00","3:00",200);
+        Job job2 = new Job(user,1,"12:00","3:00",100);
+        Job job3 = new Job(user,3,"12:00","3:00",250);
+        jobs.add(job1);
+        jobs.add(job2);
+        jobs.add(job3);
     }
 
-    private List<Job> jobs;
-    private Context context;
-    public static String departureArea = "";
-    public static String arrivalArea = "";
-    public static String datePreferred = "";
-
-
-    public JobAdapter(ArrayList<Job>jobs,final Context context) {
+    public JobAdapter(List<Job>jobs,final Context context) {
         this.jobs = jobs;
         this.context = context;
     }

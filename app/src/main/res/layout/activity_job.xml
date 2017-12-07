@@ -52,12 +52,14 @@
                 android:layout_height="match_parent"
                 android:text="Number of Rooms to Move"
                 android:layout_gravity="center_vertical"
+
                 android:padding="8dp" />
             <EditText
                 android:id="@+id/input_rooms"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="match_parent"
+                android:inputType="number"
                 android:hint="4"
                 style="@style/EditTextCustomHolo"/>
 
@@ -82,6 +84,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="match_parent"
+                android:inputType="time"
                 android:hint="12:30 pm"
                 style="@style/EditTextCustomHolo"/>
 
@@ -105,6 +108,7 @@
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="match_parent"
+                android:inputType="time"
                 android:hint="08:00pm"
                 style="@style/EditTextCustomHolo"/>
         </LinearLayout>
@@ -127,6 +131,7 @@
             android:text="Max Price"
             android:textSize="24sp"
             android:paddingTop="20dp"
+            android:inputType="number"
             android:paddingLeft="8dp" />
 
         <EditText

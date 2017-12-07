@@ -138,15 +138,6 @@
                 android:layout_marginRight="50dp"
                 android:layout_marginLeft="50dp">
 
-                <Button
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_margin="8dp"
-                    android:textSize="8dp"
-                    android:text="Modify"
-                    android:onClick="modifyUser" />
-
             </LinearLayout>
 
         </LinearLayout>
