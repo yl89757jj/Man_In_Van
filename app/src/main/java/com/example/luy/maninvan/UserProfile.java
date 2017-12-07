@@ -61,9 +61,9 @@ public class UserProfile extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Job job1 = new Job(user,2,"12:00","3:00",200);
-        Job job2 = new Job(user,1,"12:00","3:00",100);
-        Job job3 = new Job(user,3,"12:00","3:00",250);
+        Job job1 = new Job(user,2,"12:00","3:00",5,200);
+        Job job2 = new Job(user,1,"12:00","3:00",10,100);
+        Job job3 = new Job(user,3,"12:00","3:00",12,250);
         jobs.add(job1);
         jobs.add(job2);
         jobs.add(job3);
@@ -80,9 +80,10 @@ public class UserProfile extends AppCompatActivity {
         recyclerView = findViewById(R.id.resultRecycler_view);
         nameView = findViewById(R.id.user_name);
         numberView = findViewById(R.id.user_phone);
-        jobAdapter = new JobAdapter(jobs,UserProfile.this);
+
+
         //TODO: Request DATA from database and create list of user's jobs; Input parameter should be a list of JOB
-//        jobAdapter = new JobAdapter(this);
+        jobAdapter = new JobAdapter(jobs,UserProfile.this);
         recyclerView.setAdapter(jobAdapter);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));

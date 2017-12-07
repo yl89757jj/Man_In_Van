@@ -14,15 +14,17 @@ public class Job implements Serializable {
     public String startTime;
     public String endTime;
     public int price;
+    public int distance;
     public String description  ="";
 
 
-    public Job(User user, int movingRoom, String startTime, String endTime, int price) {
+    public Job(User user, int movingRoom, String startTime, String endTime, int dis, int price) {
         this.user = user;
         this.movingRoom = movingRoom;
         this.startTime = startTime;
         this.endTime = endTime;
         this.price = price;
+        this.distance = dis;
 
     }
 

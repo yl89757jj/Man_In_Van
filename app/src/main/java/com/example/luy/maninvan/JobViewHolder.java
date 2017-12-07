@@ -18,6 +18,7 @@ public class JobViewHolder extends RecyclerView.ViewHolder {
     public TextView jobEnd;
     public TextView jobPrice;
     public TextView jobRoom;
+    public TextView jobDis;
     private Context context;
 
 
@@ -29,6 +30,7 @@ public class JobViewHolder extends RecyclerView.ViewHolder {
         jobEnd = itemView.findViewById(R.id.job_end);
         jobRoom = itemView.findViewById(R.id.job_rooms);
         jobPrice = itemView.findViewById(R.id.job_price);
+        jobDis = itemView.findViewById(R.id.job_dis);
         this.context = context;
     }
 
@@ -37,6 +39,7 @@ public class JobViewHolder extends RecyclerView.ViewHolder {
         jobEnd.setText(job.endTime.toString());
         jobRoom.setText(""+job.movingRoom);
         jobPrice.setText(""+job.price);
+        jobDis.setText(""+job.distance);
 
     }
 
