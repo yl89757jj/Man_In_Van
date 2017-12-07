@@ -7,3 +7,4 @@ class DriverJob(db.Document):
     startTime = db.StringField(required=True, default='')
     endTime = db.StringField(required=True, default='')
     unitMinprice = db.IntField(required=True, default=0)
+    jobMaxDist = db.IntField(required=True, default=0)

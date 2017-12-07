@@ -8,6 +8,7 @@ class Job(db.Document):
     endTime = db.StringField(required=True, default='')
     price = db.IntField(required=True, default=0)
     unitMaxprice = db.IntField(required=True, default=0)
+    jobDist = db.IntField(required=True, default=0)
     roomNum = db.IntField(required=True, default=0)
     
     # content = db.StringField(required=True,default='This guy does not level anything')

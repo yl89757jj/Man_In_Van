@@ -18,6 +18,16 @@ app = Flask(__name__)
 app.config.from_object('src.configue')
 db.init_app(app)
 
+@app.route('/checkExist',methods=['POST'])
+def signup():
+  userName = request.json['userName']
+  userid = user.save()
+  res = False
+  for user in User.objects:
+    if user.userName == userName:
+      res = True
+  return jsonify({'result' : res}) 
+
 
 #This is just for testing
 @app.route('/signup',methods=['POST'])
@@ -46,26 +56,28 @@ def login():
 
 
 def matchDriver(paras):
-  startTime, endTime, unitMaxprice = paras[0],paras[1],paras[2]
+  startTime, endTime, unitMaxprice,jobDist= paras[0],paras[1],paras[2],paras[3]
   lst = []
   jobs = DriverJob.objects
   for job in jobs:
     j_start = job.startTime
     j_end = job.endTime
     j_unitMinprice = job.unitMinprice
-    if (j_start <= startTime) and (j_end >= endTime) and (j_unitMinprice <= unitMaxprice):
+    j_maxDist = job.jobMaxDist
+    if (j_start <= startTime) and (j_end >= endTime) and (j_unitMinprice <= unitMaxprice) and (j_maxDist >= jobDist):
       lst.append(job)
   return lst
 
 def matchUser(paras):
-  startTime, endTime, unitMinprice = paras[0],paras[1],paras[2]
+  startTime, endTime, unitMinprice, jobMaxDist= paras[0],paras[1],paras[2],paras[3]
   lst = []
   jobs = Job.objects
   for job in jobs:
     j_start = job.startTime
     j_end = job.endTime
     j_unitMaxprice = job.unitMaxprice
-    if (j_start >= startTime) and (j_end <= endTime) and (j_unitMaxprice >= unitMinprice):
+    j_dist = job.jobDist
+    if (j_start >= startTime) and (j_end <= endTime) and (j_unitMaxprice >= unitMinprice) and (jobMaxDist >=j_dist):
       lst.append(job)
   return lst
 
@@ -78,9 +90,10 @@ def postJob():
   price = request.json['price']
   unitMaxprice = request.json['unitMaxprice']
   roomNum = request.json['roomNum']
-  job = Job(userName=userName, startTime=startTime,endTime=endTime,price=price,unitMaxprice = unitMaxprice, roomNum=roomNum)
+  jobDist = request.json['jobDist']
+  job = Job(userName=userName, startTime=startTime,endTime=endTime,price=price,unitMaxprice = unitMaxprice, roomNum=roomNum,jobDist=jobDist)
   job.save()
-  paras = [startTime, endTime, unitMaxprice]
+  paras = [startTime, endTime, unitMaxprice,jobDist]
   lst = matchDriver(paras)
   return jsonify({'list' : lst}) 
 
@@ -90,11 +103,11 @@ def postDriverJob():
   startTime = request.json['startTime']
   endTime = request.json['endTime']
   unitMinprice = request.json['unitMinprice']
-  driverJob = DriverJob(userName=userName, startTime=startTime,endTime=endTime, unitMinprice = unitMinprice)
+  jobMaxDist = request.json['jobMaxDist']
+  driverJob = DriverJob(userName=userName, startTime=startTime,endTime=endTime, unitMinprice = unitMinprice, jobMaxDist=jobMaxDist)
   jobid = driverJob.save()
-  paras = [startTime, endTime, unitMinprice]
-  lst = matchDriver(paras)
-  #match
+  paras = [startTime, endTime, unitMinprice, jobMaxDist]
+  lst = matchUser(paras)
   return jsonify({'list' : lst}) 
 
 # Using POST here to consist with front-end design
