@@ -54,10 +54,12 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".HaulingActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".HaulingActivity" />
         <activity android:name=".UserProfile" />
-        <activity android:name=".InfoActivity"></activity>
+        <activity
+            android:name=".InfoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            ></activity>
     </application>
 
 </manifest>
